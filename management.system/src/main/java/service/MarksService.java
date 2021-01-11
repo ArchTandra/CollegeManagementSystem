@@ -9,6 +9,8 @@ public class MarksService {
     {
         if(id.equals("maitri") )
         {
+            if(subjectName == null)
+            return "100";
             if(subjectName.equals("maths"))
             {
                 return "50";
@@ -17,7 +19,7 @@ public class MarksService {
             {
                 return "50";
             }
-            return "100";
+
         }
 
         if(id.equals("sreelakshmi"))

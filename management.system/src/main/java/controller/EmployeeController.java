@@ -11,7 +11,7 @@ public class EmployeeController {
     MarksService marksService;
 
     @GetMapping("/class/marks/students/names/name/{id}")
-    public String getMarks(@PathVariable String id, @RequestParam("subject") String subjectName)
+    public String getMarks(@PathVariable String id, @RequestParam(required = false) String subjectName)
     {
         //call to database
 
