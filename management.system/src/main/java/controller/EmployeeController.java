@@ -1,21 +1,23 @@
 package controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import service.MarksService;
 
 @RestController
 public class EmployeeController {
-    @GetMapping("/users")
-    public String getMessage()
+
+    @Autowired
+    MarksService marksService;
+
+    @GetMapping("/class/marks/students/names/name/{id}")
+    public String getMarks(@PathVariable String id, @RequestParam("subject") String subjectName)
     {
-        return "Adithya";
+        //call to database
+
+        return marksService.getMarks(id, subjectName);
     }
 
 
-    @GetMapping("/empId")
-    public String getEmployeeId()
-    {
-        return "123";
-    }
+
 }
