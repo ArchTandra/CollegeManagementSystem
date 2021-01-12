@@ -1,9 +1,10 @@
-package service;
+package com.ms.system.management.service;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class MarksService {
+
 
     public String getMarks(String id, String subjectName)
     {
@@ -15,10 +16,11 @@ public class MarksService {
             {
                 return "50";
             }
-            if(subjectName.equals("english"))
+            if( subjectName.equals("english"))
             {
                 return "50";
             }
+
 
         }
 
