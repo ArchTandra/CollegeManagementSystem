@@ -1,35 +1,32 @@
 package com.ms.system.management.service;
 
+import com.ms.system.management.entity.Student;
+import com.ms.system.management.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 @Component
 public class MarksService {
 
+    @Autowired
+    StudentRepository repository;
 
-    public String getMarks(String id, String subjectName)
+    public Optional<Student> getStudent(int id)
     {
-        if(id.equals("maitri") )
-        {
-            if(subjectName == null)
-            return "100";
-            if(subjectName.equals("maths"))
-            {
-                return "50";
-            }
-            if( subjectName.equals("english"))
-            {
-                return "50";
-            }
-
-
-        }
-
-        if(id.equals("sreelakshmi"))
-            return "95";
-        if(id.equals("deema"))
-            return "85";
-
-        return  "empty";
+        return repository.findById(id);
     }
+
+    public void createStudent(Student student)
+    {
+        repository.save(student);
+    }
+
+    public void deleteStudent(int id)
+    {
+        repository.deleteById(id);
+    }
+
 
 }
